@@ -8,15 +8,8 @@ Trabalho da disciplina de Desenvolvimento Web (AV6) — IFC.
 
 ## Documentação
 
-- [Minimundo e entidades](01_project_doc/miniworld.md)
-- [Arquitetura](01_project_doc/architecture.md)
-
-## Equipe
-
-| Nome | Atuação no trabalho |
-|------|----------------------|
-| _preencher_ | _preencher_ |
-| _preencher_ | _preencher_ |
+- [Minimundo e entidades](miniworld.md)
+- [Arquitetura](architecture.md)
 
 ## Stack
 
@@ -67,10 +60,7 @@ npm run dev
 
 O frontend sobe em `http://localhost:3000`.
 
-## Links do projeto
 
-- **Repositório**: _preencher URL_
-- **Sistema hospedado**: _preencher URL_
 
 ## Prints de execução local
 
