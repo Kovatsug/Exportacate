@@ -30,7 +30,9 @@ exportacate/
 │   │   ├── routes/      # camada de rotas (endpoints Flask)
 │   │   ├── __init__.py
 │   │   └── config.py
-│   ├── requirements.txt
+│   ├── pyproject.toml    # Poetry configuration
+│   ├── poetry.lock       # Poetry lock file
+│   ├── .env.example      # Environment variables template
 │   └── run.py
 ├── frontend/
 │   ├── app/              # páginas Next.js (App Router)

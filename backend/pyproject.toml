@@ -1,0 +1,130 @@
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+package-mode = false
+
+[project]
+name = "exportacate-backend"
+version = "0.1.0"
+description = "Backend API for Exportacate - Avocado export management system"
+readme = "README.md"
+authors = [{name = "Exportacate Team"}]
+license = {text = "MIT"}
+requires-python = ">=3.11,<3.14"
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Framework :: Flask",
+    "Topic :: Internet :: WWW/HTTP :: HTTP Servers",
+    "Topic :: Database :: Front-Ends",
+]
+
+dependencies = [
+    "flask>=3.0.3,<4.0.0",
+    "flask-sqlalchemy>=3.1.1,<4.0.0",
+    "flask-migrate>=4.0.5,<5.0.0",
+    "flask-cors>=4.0.1,<5.0.0",
+    "python-dotenv>=1.0.1,<2.0.0",
+    "psycopg2-binary>=2.9.9,<3.0.0",
+    "gunicorn>=21.2.0,<22.0.0",
+    "pymysql>=1.1.0,<2.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0,<9.0.0",
+    "pytest-cov>=4.1.0,<5.0.0",
+    "pytest-mock>=3.12.0,<4.0.0",
+    "black>=24.0.0,<25.0.0",
+    "ruff>=0.5.0,<1.0.0",
+    "mypy>=1.10.0,<2.0.0",
+    "flake8>=7.0.0,<8.0.0",
+    "isort>=5.13.0,<6.0.0",
+]
+
+[tool.poetry.group.dev.dependencies]
+pytest = ">=8.0.0,<9.0.0"
+pytest-cov = ">=4.1.0,<5.0.0"
+pytest-mock = ">=3.12.0,<4.0.0"
+black = ">=24.0.0,<25.0.0"
+ruff = ">=0.5.0,<1.0.0"
+mypy = ">=1.10.0,<2.0.0"
+flake8 = ">=7.0.0,<8.0.0"
+isort = ">=5.13.0,<6.0.0"
+
+[tool.poetry.scripts]
+# With package-mode = false, scripts are not installed as entry points.
+# Use `poetry run python run.py` or `poetry run flask` directly.
+# Seed will be implemented later: `poetry run python -m app.seed`
+flask = "flask:main"
+
+[tool.black]
+line-length = 100
+target-version = ['py311', 'py312']
+include = '\.pyi?$'
+extend-exclude = '''
+/(?:
+    \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+)/
+'''
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+select = [
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings
+    "F",   # pyflakes
+    "I",   # isort
+    "UP",  # pyupgrade
+    "B",   # flake8-bugbear
+    "C4",  # flake8-comprehensions
+    "SIM", # flake8-simplify
+    "T20", # flake8-print
+]
+ignore = [
+    "E501",  # line too long, handled by black
+    "B008",  # do not perform function calls in argument defaults
+]
+exclude = [
+    ".git",
+    ".mypy_cache",
+    ".venv",
+    "build",
+    "dist",
+]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = false
+ignore_missing_imports = true
+
+[tool.isort]
+profile = "black"
+line_length = 100
+multi_line_output = 3
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"
+python_classes = "Test*"
+python_functions = "test_*"
+addopts = "-v --cov=app --cov-report=term-missing"

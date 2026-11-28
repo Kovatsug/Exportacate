@@ -1,0 +1,70 @@
+# Environment files
+.env
+.env.local
+.env.*.local
+# .env.example is intentionally NOT ignored - it serves as a template
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+.mypy_cache/
+.ruff_cache/
+.pyre/
+
+# Virtual environments
+venv/
+.env/
+.env
+venv
+ENV/
+env/
+.venv/
+
+# Poetry
+# poetry.lock is intentionally NOT ignored - it must be versioned for reproducible builds
+
+# SQLite databases
+*.db
+*.sqlite
+*.sqlite3
+instance/
+
+# Node.js / Next.js
+node_modules/
+.next/
+out/
+build/
+dist/
+*.tsbuildinfo
+next-env.d.ts
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+.tmp/
+.temp/
+
+# Testing
+.coverage
+htmlcov/
+.pytest_cache/
